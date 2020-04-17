@@ -29,6 +29,18 @@ public class TeamController {
 		this.playServ = playServ;
 	}
 	
+	@GetMapping("getAllTeams")
+	public List<Team> getAllTeams() {
+		System.out.println("in getAllTeams()");
+		return teamServ.retrieveAllTeams();
+	}
+	
+	@GetMapping("/getTeam")
+	public Team getTeam(String teamName) {
+		System.out.println("in getTeam(): " + teamName);
+		return teamServ.retrieveTeam(teamName);
+	}
+	
 	@PostMapping("/createTeam")
 	public Team createTeam(String teamName, int playerOneId, int playerTwoId, int playerThreeId, int playerFourId, int playerFiveId) {
 		List<Player> playerList = playServ.retrievePlayers(playerOneId, playerTwoId, playerThreeId, playerFourId, playerFiveId);
@@ -39,11 +51,5 @@ public class TeamController {
 	public Team updateTeam(int teamId, int playerOneId, int playerTwoId, int playerThreeId, int playerFourId, int playerFiveId) {
 		List<Player> playerList = playServ.retrievePlayers(playerOneId, playerTwoId, playerThreeId, playerFourId, playerFiveId);
 		return teamServ.updateTeam(teamId, playerList);
-	}
-	
-	@GetMapping("/getTeam")
-	public Team getTeam(String teamName) {
-		System.out.println("in getTeam(): " + teamName);
-		return teamServ.retrieveTeam(teamName);
 	}
 }

@@ -19,6 +19,14 @@ public class TeamServices {
 		this.teamDao = teamDao;
 	}
 	
+	public List<Team> retrieveAllTeams() {
+		return teamDao.findAll();
+	}
+	
+	public Team retrieveTeam(String teamName) {
+		return teamDao.findByTeamName(teamName);
+	}
+	
 	public Team createTeam(String teamName, List<Player> players) {
 		Team newTeam = new Team(teamName, players);
 		return teamDao.save(newTeam);
@@ -28,9 +36,5 @@ public class TeamServices {
 		Team team = teamDao.findByTeamId(teamId);
 		team.setPlayers(players);
 		return teamDao.save(team);
-	}
-	
-	public Team retrieveTeam(String teamName) {
-		return teamDao.findByTeamName(teamName);
 	}
 }
