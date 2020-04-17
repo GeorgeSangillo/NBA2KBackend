@@ -1,0 +1,14 @@
+server:
+  port: 9025
+
+spring:
+  datasource:
+    url: ${NBA2KURL}
+    username: ${NBA2KUsername}
+    password: ${NBA2KPassword}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: update
