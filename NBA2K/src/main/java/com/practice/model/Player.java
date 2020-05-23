@@ -32,65 +32,59 @@ public class Player {
 	@Column(name="position_secondary")
 	private Position positionSecondary;
 	
-	@Enumerated(EnumType.STRING)
 	@Column(name="grade_ins", nullable=false)
-	private Grade gradeIns;
+	private int gradeIns;
 	
-	@Enumerated(EnumType.STRING)
 	@Column(name="grade_out", nullable=false)
-	private Grade gradeOut;
+	private int gradeOut;
 	
-	@Enumerated(EnumType.STRING)
 	@Column(name="grade_ply", nullable=false)
-	private Grade gradePly;
+	private int gradePly;
 	
-	@Enumerated(EnumType.STRING)
 	@Column(name="grade_ath", nullable=false)
-	private Grade gradeAth;
+	private int gradeAth;
 	
-	@Enumerated(EnumType.STRING)
 	@Column(name="grade_def", nullable=false)
-	private Grade gradeDef;
+	private int gradeDef;
 	
-	@Enumerated(EnumType.STRING)
 	@Column(name="grade_reb", nullable=false)
-	private Grade gradeReb;
+	private int gradeReb;
 	
 	@Column(name="salary", nullable=false)
 	private int salary;
 	
 	public Player() {}
 	
-	public Player(String playerFirstName, String playerLastName, String positionPrimary, String positionSecondary, String gradeIns,
-			String gradeOut, String gradePly, String gradeAth, String gradeDef, String gradeReb, int salary) {
+	public Player(String playerFirstName, String playerLastName, String positionPrimary, String positionSecondary, int gradeIns,
+			int gradeOut, int gradePly, int gradeAth, int gradeDef, int gradeReb, int salary) {
 		this.playerFirstName = playerFirstName;
 		this.playerLastName = playerLastName;
 		this.positionPrimary = Position.valueOf(positionPrimary);
 		if (!positionSecondary.isEmpty())
 			this.positionSecondary = Position.valueOf(positionSecondary);
-		this.gradeIns = Grade.valueOf(gradeIns);
-		this.gradeOut = Grade.valueOf(gradeOut);
-		this.gradePly = Grade.valueOf(gradePly);
-		this.gradeAth = Grade.valueOf(gradeAth);
-		this.gradeDef = Grade.valueOf(gradeDef);
-		this.gradeReb = Grade.valueOf(gradeReb);
+		this.gradeIns = gradeIns;
+		this.gradeOut = gradeOut;
+		this.gradePly = gradePly;
+		this.gradeAth = gradeAth;
+		this.gradeDef = gradeDef;
+		this.gradeReb = gradeReb;
 		this.salary = salary;
 	}
 
-	public Player(int playerId, String playerFirstName, String playerLastName, String positionPrimary, String positionSecondary, String gradeIns,
-			String gradeOut, String gradePly, String gradeAth, String gradeDef, String gradeReb, int salary) {
+	public Player(int playerId, String playerFirstName, String playerLastName, String positionPrimary, String positionSecondary, int gradeIns,
+			int gradeOut, int gradePly, int gradeAth, int gradeDef, int gradeReb, int salary) {
 		this.playerId = playerId;
 		this.playerFirstName = playerFirstName;
 		this.playerLastName = playerLastName;
 		this.positionPrimary = Position.valueOf(positionPrimary);
 		if (!positionSecondary.isEmpty())
 			this.positionSecondary = Position.valueOf(positionSecondary);
-		this.gradeIns = Grade.valueOf(gradeIns);
-		this.gradeOut = Grade.valueOf(gradeOut);
-		this.gradePly = Grade.valueOf(gradePly);
-		this.gradeAth = Grade.valueOf(gradeAth);
-		this.gradeDef = Grade.valueOf(gradeDef);
-		this.gradeReb = Grade.valueOf(gradeReb);
+		this.gradeIns = gradeIns;
+		this.gradeOut = gradeOut;
+		this.gradePly = gradePly;
+		this.gradeAth = gradeAth;
+		this.gradeDef = gradeDef;
+		this.gradeReb = gradeReb;
 		this.salary = salary;
 	}
 
@@ -133,55 +127,55 @@ public class Player {
 	public void setPositionSecondary(Position positionSecondary) {
 		this.positionSecondary = positionSecondary;
 	}
-
-	public Grade getGradeIns() {
+	
+	public int getGradeIns() {
 		return gradeIns;
 	}
 
-	public void setGradeIns(Grade gradeIns) {
+	public void setGradeIns(int gradeIns) {
 		this.gradeIns = gradeIns;
 	}
 
-	public Grade getGradeOut() {
+	public int getGradeOut() {
 		return gradeOut;
 	}
 
-	public void setGradeOut(Grade gradeOut) {
+	public void setGradeOut(int gradeOut) {
 		this.gradeOut = gradeOut;
 	}
 
-	public Grade getGradePly() {
+	public int getGradePly() {
 		return gradePly;
 	}
 
-	public void setGradePly(Grade gradePly) {
+	public void setGradePly(int gradePly) {
 		this.gradePly = gradePly;
 	}
 
-	public Grade getGradeAth() {
+	public int getGradeAth() {
 		return gradeAth;
 	}
 
-	public void setGradeAth(Grade gradeAth) {
+	public void setGradeAth(int gradeAth) {
 		this.gradeAth = gradeAth;
 	}
 
-	public Grade getGradeDef() {
+	public int getGradeDef() {
 		return gradeDef;
 	}
 
-	public void setGradeDef(Grade gradeDef) {
+	public void setGradeDef(int gradeDef) {
 		this.gradeDef = gradeDef;
 	}
 
-	public Grade getGradeReb() {
+	public int getGradeReb() {
 		return gradeReb;
 	}
 
-	public void setGradeReb(Grade gradeReb) {
+	public void setGradeReb(int gradeReb) {
 		this.gradeReb = gradeReb;
 	}
-	
+
 	public int getSalary() {
 		return salary;
 	}

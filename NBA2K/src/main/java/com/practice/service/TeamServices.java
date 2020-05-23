@@ -37,4 +37,27 @@ public class TeamServices {
 		team.setPlayers(players);
 		return teamDao.save(team);
 	}
+	
+	public String[] competeTeam(String teamName1, String teamName2) {
+		String[] output = new String[1];
+		List<Player> team1 = teamDao.findByTeamName(teamName1).getPlayers();
+		List<Player> team2 = teamDao.findByTeamName(teamName2).getPlayers();
+		
+		int team1Score = 0;
+		int team2Score = 0;
+		
+		for (int i = 0; i < 5; i++) {
+			team1Score += team1.get(i).getGradeIns() + team1.get(i).getGradeOut() + team1.get(i).getGradePly() + team1.get(i).getGradeAth() + team1.get(i).getGradeDef() + team1.get(i).getGradeReb() + (Math.random() * 100);
+			team2Score += team2.get(i).getGradeIns() + team2.get(i).getGradeOut() + team2.get(i).getGradePly() + team2.get(i).getGradeAth() + team2.get(i).getGradeDef() + team2.get(i).getGradeReb() + (Math.random() * 100);
+		}
+		
+		if (team1Score > team2Score)
+			output[0] = teamName1 + " Wins!";
+		else if (team1Score == team2Score)
+			output[0] = teamName1 + " Must Go Into Overtime";
+		else
+			output[0] = teamName1 + " Loses :(";
+		
+		return output;
+	}
 }

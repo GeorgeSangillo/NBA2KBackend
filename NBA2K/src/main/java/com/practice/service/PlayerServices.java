@@ -22,7 +22,7 @@ public class PlayerServices {
 		this.playDao = playDao;
 	}
 	
-	public Player createPlayer(String playerFirstName, String playerLastName, String positionPrimary, String positionSecondary, String gradeIns, String gradeOut, String gradePly, String gradeAth, String gradeDef, String gradeReb, int salary) {
+	public Player createPlayer(String playerFirstName, String playerLastName, String positionPrimary, String positionSecondary, int gradeIns, int gradeOut, int gradePly, int gradeAth, int gradeDef, int gradeReb, int salary) {
 		Player newPlayer = new Player(playerFirstName, playerLastName, positionPrimary, positionSecondary, gradeIns, gradeOut, gradePly, gradeAth, gradeDef, gradeReb, salary);
 		return playDao.save(newPlayer);
 	}
